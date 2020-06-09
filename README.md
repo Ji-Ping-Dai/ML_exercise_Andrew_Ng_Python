@@ -1,0 +1,3 @@
+# ML_exercise_Andrew_Ng_Python
+ Exercises of Andrew Ng's Machine Learning course in Coursera (written by Python3) <br>
+ Updating...
