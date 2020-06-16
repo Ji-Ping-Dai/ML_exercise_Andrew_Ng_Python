@@ -7,6 +7,7 @@ Some functions to preform Regularized Linear Regression and Bias-Variance EXERSI
 import numpy as np
 import matplotlib.pyplot as plt 
 from scipy.optimize import minimize
+from scipy.optimize import fmin_cg
 plt.rc('text',usetex=True)
 plt.rc('font',family='Times New Roman')
 
@@ -27,8 +28,9 @@ def gradient(theta,x,y,lam):
 
 def trainLR(x,y,lam):
     '''Trains linear regression'''
-    result = minimize(fun=costfunc,x0=np.zeros(x.shape[1]), method='BFGS', jac=gradient, args=(x,y,lam))
-    return result.x
+    result = fmin_cg(f=costfunc, x0=np.zeros(x.shape[1]), fprime=gradient, args=(x,y,lam), maxiter=50, full_output=True)
+    #result = minimize(fun=costfunc,x0=np.zeros(x.shape[1]), method='BFGS', jac=gradient, args=(x,y,lam))
+    return result[0]
 
 def learningCurve(x,y,xval,yval,lam):
     '''Generates the train and cross validation set errors needed to plot a learning curve'''
