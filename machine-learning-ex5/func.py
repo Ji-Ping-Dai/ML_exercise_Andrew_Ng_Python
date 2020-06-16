@@ -32,13 +32,23 @@ def trainLR(x,y,lam):
 
 def learningCurve(x,y,xval,yval,lam):
     '''Generates the train and cross validation set errors needed to plot a learning curve'''
-    m = x.shape[0]
-    error_train = np.zeros(m)
-    error_val = np.zeros(m)
-    for i in range(m):
-        theta = trainLR(x[:i+1],y[:i+1],lam)
-        error_train[i] = costfunc(theta,x[:i+1],y[:i+1],0) #lam must be zero.
-        error_val[i] = costfunc(theta,xval,yval,0)
+
+    if type(lam) is int:
+        m = x.shape[0]
+        error_train = np.zeros(m)
+        error_val = np.zeros(m)
+        for i in range(m):
+            theta = trainLR(x[:i+1],y[:i+1],lam)
+            error_train[i] = costfunc(theta,x[:i+1],y[:i+1],0) #lam must be zero.
+            error_val[i] = costfunc(theta,xval,yval,0)
+    elif type(lam) is np.ndarray:
+        n = len(lam)
+        error_train = np.zeros(n)
+        error_val = np.zeros(n)
+        for i in range(n):
+            theta = trainLR(x,y,lam[i])
+            error_train[i] = costfunc(theta,x,y,0) #lam must be zero.
+            error_val[i] = costfunc(theta,xval,yval,0)
     return error_train,error_val
 
 def polyFeatures(x,p):
