@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jun  5 11:56:32 2020
-Some functions to preform Regularized Linear Regression and Bias-Variance EXERSIZE 5
+Created on Fri Jun 19 11:56:32 2020
+Some functions to preform Support Vector Machines EXERSIZE 6
 @author: Ji-Ping Dai
 """
 import numpy as np
