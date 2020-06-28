@@ -8,6 +8,7 @@ Exercise4: Training Neural Networks using backpropagation<br>
 Exercise5: Regularized Linear Regression and Bias-Variance<br>
 Exercise6: Support Vector Machines<br>
 Exercise7: Principle Component Analysis and K-Means Clustering<br>
+Exercise8: Anomaly Detection and Collaborative Filtering<br>
 
 
 Updating...
